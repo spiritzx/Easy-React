@@ -4,6 +4,7 @@ import './App.css';
 import home from "./views/home/home";
 import about from "./views/about/about";
 import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           <Route exact path='/' component={home}></Route>
           <Route exact path='/home' component={home}></Route>
           <Route exact path='/about' component={about}></Route>
+          <Footer/>
         </div>
       </Router>
     )
