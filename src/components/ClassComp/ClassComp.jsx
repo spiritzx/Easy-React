@@ -8,6 +8,12 @@ export default class ClassComp extends Component {
       name: "类组件"
     }
   };
+  UNSAFE_componentWillMount () {
+    console.log(this.state.name + "componentWillMount");
+  };
+  componentDidMount() {
+    console.log(this.state.name + "omponentDidMount");
+  }
   render() {
     return (
       <div>
