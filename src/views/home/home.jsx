@@ -28,7 +28,9 @@ export default class home extends Component {
       <p
         className={this.state._class + " title"}
         style={this.state.style}
-      >首页</p>
+      >
+        首页
+      </p>
       <button onClick={() => {this.setName(1)}}>设置名字</button>
       <button onClick={() => {this.setSex(2)}}>设置性别</button>
       <div><span>名字：</span>{ props.name }</div>

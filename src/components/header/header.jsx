@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import {logo} from "../../assets/imgs/logo192.png";
+import { NavLink } from 'react-router-dom';
+// 引入浏览器访问历史
+// import { location } from 'react-router-dom';
+import './style/header.scss';
 
 export default class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    }
+  }
+
+  componentDidMount() {
+    console.log(this.props)
+  }
   render() {
     return (
       <div className="top-nav">
         <div className="nav-icon">
-          <img src={logo} alt="logo" className="App-logo"/>
+          <img src={require("../../assets/imgs/logo192.png")} alt="logo" className="App-logo"/>
         </div>
         <div className="nav-main">
-          <Link to="/home">首页</Link>
-          <Link to="/about">关于</Link>
+          <NavLink to="/home" className="a-tag">首页</NavLink>
+          <NavLink to="/about" className="a-tag">关于</NavLink>
         </div>
       </div>
     );

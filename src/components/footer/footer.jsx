@@ -4,7 +4,7 @@ export class footer extends Component {
   render() {
     return (
       <div>
-        footer
+        footer@react
       </div>
     );
   }
