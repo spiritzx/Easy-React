@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {  BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 // 引入头部组件
 import Header from "../../components/header/header";
