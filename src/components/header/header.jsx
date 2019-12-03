@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 // 引入浏览器访问历史
 // import { location } from 'react-router-dom';
 import './style/header.scss';
+// import img from "../../assets/imgs/logo192.png";import img from "../../assets/imgs/logo192.png";
+// let img = require("../../assets/imgs/logo192.png");
 
 export default class Header extends Component {
   constructor(props) {
