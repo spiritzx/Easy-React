@@ -22,7 +22,7 @@ export default class TMF extends Component {
         <div className="App">
           <Header></Header>
           <div className="page-main-wrap">
-            <img src={this.state.img} alt=""/>
+            {/* <img src={this.state.img} alt=""/> */}
             <PageMain></PageMain>
           </div>
           <Footer/>
