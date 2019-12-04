@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-
 import home from "../../views/home/home";
 import about from "../../views/about/about";
 import "./style/routerComp.scss";
