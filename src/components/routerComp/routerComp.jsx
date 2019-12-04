@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import home from "../../views/home/home";
 import about from "../../views/about/about";
-import "./style/pageMain.scss";
+import "./style/routerComp.scss";
 
 // 定义路由
 let routerArr = [
@@ -29,7 +29,7 @@ export default class PageMain extends Component {
     return (
         routerArr.map((val, key) => {
           return (
-            <Route exact path={val.path} component={val.compoent}></Route>
+            <Route key={key} exact path={val.path} state={key} component={val.compoent}></Route>
           )
         })
     )

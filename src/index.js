@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
+import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+import App from "./views/App";
 
-import TMF from "./layout/TMF/TMF";
-
-
-class App extends Component {
+class Index extends Component {
   render() {
-    return <TMF></TMF>
+    return (
+      <Router>
+        <App></App>
+      </Router>
+    )
   }
 }
 
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Index />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

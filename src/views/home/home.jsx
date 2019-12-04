@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import "./home.scss";
 
 export default class home extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       obj: {
         name: "tom_z",
