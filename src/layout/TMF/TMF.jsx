@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import { Switch } from "react-router-dom";
 // 引入头部组件
 import Header from "../../components/header/header";
 // 引入底部组件
@@ -22,7 +23,6 @@ class TMF extends Component {
       <div className="App">
         <Header></Header>
         <div className="page-main-wrap">
-          {/* <img src={this.state.img} alt=""/> */}
           <RouterComp></RouterComp>
         </div>
         <Footer/>
