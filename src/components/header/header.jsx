@@ -26,6 +26,7 @@ export default class Header extends Component {
         <div className="nav-main">
           <NavLink to="/home" className="a-tag">首页</NavLink>
           <NavLink to="/about" className="a-tag">关于</NavLink>
+          <NavLink to="/detail" className="a-tag">详情</NavLink>
         </div>
       </div>
     );

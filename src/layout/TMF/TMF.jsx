@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Header from "../../components/header/header";
 // 引入底部组件
 import Footer from "../../components/footer/footer";
-import RouterComp from "../../components/routerComp/routerComp";
+import RouterComp from "../../router";
 // import { withRouter } from 'react-router-dom';
 import "./style/TMF.scss";
 
