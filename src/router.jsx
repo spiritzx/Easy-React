@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Redirect, Switch } from 'react-router-dom';
-import NotFound from "./views/NotFound/NotFound";
-import home from "./views/home/home";
-import about from "./views/about/about";
-import detail from "./views/Detail/Detail";
-import DetailChild1 from "./views/Detail/DetailChild1/DetailChild1";
+// import NotFound from "./views/NotFound/NotFound";
+// import home from "./views/home/home";
+// import about from "./views/about/about";
+// import detail from "./views/Detail/Detail";
+// import DetailChild1 from "./views/Detail/DetailChild1/DetailChild1";
+import Loadable from 'react-loadable';
+
+function loadable(comp) {
+  return Loadable({
+    loader: comp,
+    loading() {
+      return (
+        <div>...</div>
+      )
+    },
+    delay: 5000,
+    timeout: 10000
+  })
+}
 
 // 定义路由
 let routerArr = [
@@ -17,31 +31,31 @@ let routerArr = [
   {
     name: "home",
     path: "/home",
-    component: home,
+    component: loadable(() => import("./views/home/home")),
     exact: true // 开启严格匹配模式
   },
   {
     name: "about",
     path: "/about",
-    component: about,
+    component: loadable(() => import("./views/about/about")),
     exact: true // 开启严格匹配模式
   },
   {
     name: "detail",
     path: "/detail",
-    component: detail,
+    component: loadable(() => import("./views/Detail/Detail")),
     exact: true, // 开启严格匹配模式
   },
   {
     name: "DetailChild1",
     path: "/detail/detailChild1",
-    component: DetailChild1,
+    component: loadable(() => import("./views/Detail/DetailChild1/DetailChild1")),
     exact: true, // 开启严格匹配模式
   },
   {
     name: "NotFound",
     path: "/404",
-    component: NotFound,
+    component: loadable(() => import("./views/NotFound/NotFound")),
     exact: false,
   },
   {
@@ -72,9 +86,9 @@ class RourerComp extends Component {
                   key={key}
                   exact={val.exact}
                   path={val.path}
-                  render={props => {
-                    return <DetailChild1 path="/detail/detailChild1" {...props}></DetailChild1>
-                  }}
+                  // render={props => {
+                  //   return <DetailChild1 path="/detail/detailChild1" {...props}></DetailChild1>
+                  // }}
                 >
                 </Route>
               )
