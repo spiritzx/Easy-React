@@ -4,7 +4,7 @@ import { Route, withRouter, Redirect, Switch } from 'react-router-dom';
 // import home from "./views/home/home";
 // import about from "./views/about/about";
 // import detail from "./views/Detail/Detail";
-// import DetailChild1 from "./views/Detail/DetailChild1/DetailChild1";
+import DetailChild1 from "./views/Detail/DetailChild1/DetailChild1";
 import Loadable from 'react-loadable';
 
 function loadable(comp) {
@@ -44,14 +44,17 @@ let routerArr = [
     name: "detail",
     path: "/detail",
     component: loadable(() => import("./views/Detail/Detail")),
-    exact: true, // 开启严格匹配模式
+    exact: false, // 开启严格匹配模式
+    childer: [
+      {
+        name: "DetailChild1",
+        path: "/detail/detailChild1",
+        component: DetailChild1,
+        exact: true, // 开启严格匹配模式
+      },
+    ]
   },
-  {
-    name: "DetailChild1",
-    path: "/detail/detailChild1",
-    component: loadable(() => import("./views/Detail/DetailChild1/DetailChild1")),
-    exact: true, // 开启严格匹配模式
-  },
+  
   {
     name: "NotFound",
     path: "/404",
@@ -86,9 +89,9 @@ class RourerComp extends Component {
                   key={key}
                   exact={val.exact}
                   path={val.path}
-                  // render={props => {
-                  //   return <DetailChild1 path="/detail/detailChild1" {...props}></DetailChild1>
-                  // }}
+                  render={props => {
+                    return <val.component {...props} router={val.childer}></val.component>
+                  }}
                 >
                 </Route>
               )
