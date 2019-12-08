@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 import Header from "../../components/header/header";
 // 引入底部组件
 import Footer from "../../components/footer/footer";
-import RouterComp from "../../router";
+import routerArr from "../../router";
+import RouterView from "../../components/RouterView/RouterView";
 // import { withRouter } from 'react-router-dom';
 import "./style/TMF.scss";
 
@@ -23,7 +24,7 @@ class TMF extends Component {
       <div className="App">
         <Header></Header>
         <div className="page-main-wrap">
-          <RouterComp></RouterComp>
+          <RouterView routerArr={routerArr}></RouterView>
         </div>
         <Footer/>
       </div>
