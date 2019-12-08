@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Redirect, Switch } from 'react-router-dom';
-// import NotFound from "./views/NotFound/NotFound";
-// import home from "./views/home/home";
-// import about from "./views/about/about";
-// import detail from "./views/Detail/Detail";
 
-class RourerComp extends Component {
+class RourerView extends Component {
   constructor(props) {
     super(props);
     this.state = {}
@@ -55,4 +51,4 @@ class RourerComp extends Component {
   }
 }
 
-export default withRouter(RourerComp)
+export default withRouter(RourerView);

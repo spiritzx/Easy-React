@@ -1,7 +1,9 @@
-// 定义路由
+/* 
+  * 路由管理 
+  */
 import React from 'react';
 import Loadable from 'react-loadable';
-
+// 路由加载
 function loadable(comp) {
   return Loadable({
     loader: comp,
