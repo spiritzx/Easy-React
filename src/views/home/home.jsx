@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./home.scss";
+import HomeChilder from "../../components/HomeChilder/HomeChilder";
 
 export default class home extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ export default class home extends Component {
         ]
       },
       _class: "title-h1",
+      fontColor: "red",
       style: {
         color: "#ccc"
       }
@@ -31,6 +33,10 @@ export default class home extends Component {
       >
         首页
       </p>
+      <HomeChilder
+        color={this.state.fontColor}
+        changeColorFn={(arg) => {this.changeColorFn(arg)}}
+      ></HomeChilder>
       <button onClick={() => {this.setName(1)}}>设置名字</button>
       <button onClick={() => {this.setSex(2)}}>设置性别</button>
       <div><span>名字：</span>{ props.name }</div>
@@ -47,5 +53,10 @@ export default class home extends Component {
   };
   setSex = function(arg) {
     console.log(arg)
+  };
+  changeColorFn = (res) => {
+    this.setState({
+      fontColor: res
+    })
   }
 }

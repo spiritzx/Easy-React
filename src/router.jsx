@@ -48,6 +48,12 @@ let routerArr = [
         component: loadable(() => import("./views/Detail/DetailChild1/DetailChild1")),
         exact: true, // 开启严格匹配模式
       },
+      {
+        name: "DetailChild2",
+        path: "/detail/detailChild2/:id",
+        component: loadable(() => import("./views/Detail/DetailChild2/DetailChild2")),
+        exact: true, // 开启严格匹配模式
+      },
     ]
   },
   
