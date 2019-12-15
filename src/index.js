@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
-import { BrowserRouter as Router } from 'react-router-dom';
-import * as serviceWorker from './serviceWorker';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import "./index.scss";
+import { BrowserRouter as Router } from "react-router-dom";
+import * as serviceWorker from "./serviceWorker";
 import App from "./views/App";
+import store from "./redux/store";
+import {Provider} from "react-redux";
 
 class Index extends Component {
   render() {
@@ -15,7 +17,12 @@ class Index extends Component {
   }
 }
 
-ReactDOM.render(<Index />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider  store={store}>
+    <Index />
+  </Provider>
+  , 
+  document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

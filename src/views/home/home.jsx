@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./home.scss";
 import HomeChilder from "../../components/HomeChilder/HomeChilder";
+import ChangeArea from "../../components/ChangeArea/ChangeArea";
 
 export default class home extends Component {
   constructor(props) {
@@ -23,10 +24,11 @@ export default class home extends Component {
     }
   }
   render() {
+    console.log(this.props)
     return this.renderFn(this.state.obj);
   };
   renderFn = function (props) {
-    return <div>
+    return <div className="index-wrap">
       <p
         className={this.state._class + " title"}
         style={this.state.style}
@@ -37,8 +39,7 @@ export default class home extends Component {
         color={this.state.fontColor}
         changeColorFn={(arg) => {this.changeColorFn(arg)}}
       ></HomeChilder>
-      <button onClick={() => {this.setName(1)}}>设置名字</button>
-      <button onClick={() => {this.setSex(2)}}>设置性别</button>
+      <ChangeArea></ChangeArea>
       <div><span>名字：</span>{ props.name }</div>
       <div><span>性别：</span>{ props.sex }</div>
       <ul>
@@ -48,12 +49,7 @@ export default class home extends Component {
       </ul>
     </div>
   };
-  setName = function(arg) {
-    console.log(arg)
-  };
-  setSex = function(arg) {
-    console.log(arg)
-  };
+
   changeColorFn = (res) => {
     this.setState({
       fontColor: res
