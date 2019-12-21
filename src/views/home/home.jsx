@@ -4,7 +4,7 @@ import HomeChilder from "../../components/HomeChilder/HomeChilder";
 import ChangeArea from "../../components/ChangeArea/ChangeArea";
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-
+import http from "../../http/http";
 
 class home extends Component {
   //声明属性
@@ -16,7 +16,6 @@ class home extends Component {
   //   addNameAsync: PropTypes.func.isRequired
   // }
 
-
   constructor(props) {
     super(props);
     this.state = {
@@ -27,6 +26,12 @@ class home extends Component {
       }
     }
   }
+  componentDidMount() {
+    console.log(this)
+    http.getRequest("/test/tomzAdmin/getGroup").then(res=> {
+      console.log(res);
+    })
+  };
   render() {
     console.log(this.props)
     return this.renderFn(this.props);

@@ -81,6 +81,7 @@
     ]
   },
   "devDependencies": {
+    "http-proxy-middleware": "^0.20.0",
     "node-sass": "^4.12.0"
   },
   "jest": {
