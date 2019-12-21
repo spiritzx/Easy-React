@@ -1,17 +1,18 @@
-import { ADDNAME, ADDAGE } from "./actionType";
+import { CHANGENAME, CHANGESEX } from "./actionType";
+// 你只要定义各个子 Reducer 函数，然后用这个方法，将它们合成一个大的 Reducer。
 import { combineReducers } from "redux";
 
-function addName(state = "initRedux", action) { //形参默认值
+function changeName(state = "tom", action) { //形参默认值
   switch (action.type) {
-    case ADDNAME:
+    case CHANGENAME:
       return action.data
     default:
       return state
   }
 }
-function addAge(state = 0, action) {
+function changeSex(state = '男', action) {
   switch (action.type) {
-    case ADDAGE:
+    case CHANGESEX:
       return action.data
     default:
       return state
@@ -19,5 +20,5 @@ function addAge(state = 0, action) {
 }
 
 export const finalReducer = combineReducers({
-  addName, addAge
+  changeName, changeSex
 })

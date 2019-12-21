@@ -1,14 +1,14 @@
-import { ADDNAME,ADDAGE } from "./action-type";
+import { CHANGENAME, CHANGESEX } from "./actionType";
 
-export const addNameCreater = (name) =>(
+export const changeName = (name) =>(
   {
-    type: ADDNAME,
+    type: CHANGENAME,
     data: name
   }
 )
-export const addAgeCreater = (age) => (
+export const changeSex = (sex) => (
   {
-    type: ADDAGE,
-    data: age
+    type: CHANGESEX,
+    data: sex
   }
 )

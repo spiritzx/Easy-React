@@ -1,2 +1,2 @@
-export const ADDNAME = "ADDNAME";
-export const ADDAGE = "ADDAGE";
+export const CHANGENAME = "CHANGENAME";
+export const CHANGESEX = "CHANGESEX";
