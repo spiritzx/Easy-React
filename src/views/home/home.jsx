@@ -3,7 +3,7 @@ import "./home.scss";
 import HomeChilder from "../../components/HomeChilder/HomeChilder";
 import ChangeArea from "../../components/ChangeArea/ChangeArea";
 // import PropTypes from 'prop-types';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 
 class home extends Component {

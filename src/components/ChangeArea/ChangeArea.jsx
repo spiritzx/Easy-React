@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import {connect} from 'react-redux'
-import {changeName, changeSex} from '../../redux/action';
+import { connect } from 'react-redux'
+import { changeName, changeSex } from '../../redux/action';
 
 class ChangeArea extends Component {
   constructor(props) {
