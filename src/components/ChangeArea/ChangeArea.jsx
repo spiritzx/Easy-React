@@ -1,6 +1,23 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
 import { changeName, changeSex } from '../../redux/action';
+import { Button, Input } from "antd"
+
+function view() {
+  return (
+    <div>
+      <div>
+        <Input type="text" onChange={event => {this.changeNameFn(event)}}></Input>
+        <Button type="primary" onClick={() => {this.setName()}}>设置名字</Button>
+      </div>
+      <br/>
+      <div>
+        <Input type="text" onChange={event => {this.changeSexFn(event)}}></Input>
+        <Button type="primary" onClick={() => {this.setSex()}}>设置性别</Button>
+      </div>
+    </div>
+  )
+}
 
 class ChangeArea extends Component {
   constructor(props) {
@@ -11,20 +28,7 @@ class ChangeArea extends Component {
     }
   };
   render() {
-    console.log(this)
-    return (
-      <div>
-        <div>
-          <input type="text" onChange={event => {this.changeNameFn(event)}}/>
-          <button onClick={() => {this.setName()}}>设置名字</button>
-        </div>
-        <br/>
-        <div>
-          <input type="text" onChange={event => {this.changeSexFn(event)}}/>
-          <button onClick={() => {this.setSex()}}>设置性别</button>
-        </div>
-      </div>
-    )
+    return view.bind(this)()
   };
   setName() {
     this.props.changeName(this.state.name);

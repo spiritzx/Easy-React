@@ -1,3 +1,10 @@
+/*
+ * @Descripttion: react 主节点
+ * @Author: tom-z(spirit108@foxmail.com)
+ * @Date: 2020-05-27 10:46:56
+ * @LastEditors: tom-z(spirit108@foxmail.com)
+ * @LastEditTime: 2020-05-29 13:58:58
+ */ 
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";

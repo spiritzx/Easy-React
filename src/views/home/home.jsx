@@ -6,6 +6,34 @@ import ChangeArea from "../../components/ChangeArea/ChangeArea";
 import { connect } from 'react-redux'
 import http from "../../http/http";
 
+
+function viewFn(state, props) {
+  return (
+    <div className="index-wrap">
+      <p
+        className={state._class + " title"}
+        style={state.style}
+      >
+        首页
+      </p>
+      <HomeChilder
+        color={state.fontColor}
+        changeColorFn={(arg) => {this.changeColorFn(arg)}}
+      >
+      </HomeChilder>
+      <br/>
+      <ChangeArea></ChangeArea>
+      <br/>
+      <div>
+        <span>名字：</span>
+        { props.name }
+      </div>
+      {/* <div>{lastname}</div> */}
+      <div><span>性别：</span>{ props.sex }</div>
+    </div>
+  )
+}
+
 class home extends Component {
   //声明属性
   // static propTypes = {
@@ -31,33 +59,10 @@ class home extends Component {
     http.getRequest("/test/tomzAdmin/getGroup").then(res=> {
       console.log(res);
     })
-  };
+  }
   render() {
-    console.log(this.props)
-    return this.renderFn(this.props);
-  };
-  renderFn = function (props) {
-
-    return <div className="index-wrap">
-      <p
-        className={this.state._class + " title"}
-        style={this.state.style}
-      >
-        首页
-      </p>
-      <HomeChilder
-        color={this.state.fontColor}
-        changeColorFn={(arg) => {this.changeColorFn(arg)}}
-      >
-      </HomeChilder>
-      <br/>
-      <ChangeArea></ChangeArea>
-      <br/>
-      <div><span>名字：</span>{ props.name }</div>
-      {/* <div>{lastname}</div> */}
-      <div><span>性别：</span>{ props.sex }</div>
-    </div>
-  };
+    return viewFn(this.state, this.props)
+  }
 
   changeColorFn = (res) => {
     this.setState({

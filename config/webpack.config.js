@@ -1,3 +1,4 @@
+// eslint-disable-next-line strict
 'use strict';
 
 const fs = require('fs');
@@ -25,6 +26,7 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
+// eslint-disable-next-line no-unused-vars
 const eslint = require('eslint');
 
 const postcssNormalize = require('postcss-normalize');
