@@ -12,7 +12,9 @@ export default class HomeChilder extends Component {
     return (
       <div style={{"color": this.props.color}}>
         home-child
-        <button onClick={() => {this.changeColorFn()}}>changeColorFn</button>
+        <button onClick={() => {this.changeColorFn()}}>
+          changeColorFn
+        </button>
       </div>
     )
   }

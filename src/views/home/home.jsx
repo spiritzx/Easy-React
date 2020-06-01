@@ -1,13 +1,16 @@
-import React, { Component } from "react";
-import "./home.scss";
-import HomeChilder from "../../components/HomeChilder/HomeChilder";
-import ChangeArea from "../../components/ChangeArea/ChangeArea";
+import React, { Component } from "react"
+import "./home.scss"
+import HomeChilder from "../../components/HomeChilder/HomeChilder"
+import ChangeArea from "../../components/ChangeArea/ChangeArea"
+import listItem from "../../fnComp/listItem/listItem"
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-import http from "../../http/http";
+// import http from "../../http/http";
 
-
-function viewFn(state, props) {
+// 渲染函数
+function viewFn() {
+  let state = this.state
+  let props = this.props
   return (
     <div className="index-wrap">
       <p
@@ -18,7 +21,7 @@ function viewFn(state, props) {
       </p>
       <HomeChilder
         color={state.fontColor}
-        changeColorFn={(arg) => {this.changeColorFn(arg)}}
+        changeColorFn={arg => {this.changeColor(arg)} }
       >
       </HomeChilder>
       <br/>
@@ -30,6 +33,13 @@ function viewFn(state, props) {
       </div>
       {/* <div>{lastname}</div> */}
       <div><span>性别：</span>{ props.sex }</div>
+      {
+        this.state.arr.map((val, key) => {
+          return (
+            listItem(val.name, key)
+          )
+        })
+      }
     </div>
   )
 }
@@ -51,20 +61,34 @@ class home extends Component {
       fontColor: "red",
       style: {
         color: "#ccc"
-      }
+      },
+      arr: [
+        {
+          key: 0,
+          name: "01"
+        },
+        {
+          key: 1,
+          name: "02"
+        },
+        {
+          key: 2,
+          name: "03"
+        },
+      ]
     }
   }
   componentDidMount() {
     console.log(this)
-    http.getRequest("/test/tomzAdmin/getGroup").then(res=> {
-      console.log(res);
-    })
-  }
-  render() {
-    return viewFn(this.state, this.props)
+    // http.getRequest("/test/tomzAdmin/getGroup").then(res=> {
+    //   console.log(res);
+    // })
   }
 
-  changeColorFn = (res) => {
+  render() {
+    return viewFn.bind(this)()
+  }
+  changeColor = (res) => {
     this.setState({
       fontColor: res
     })
