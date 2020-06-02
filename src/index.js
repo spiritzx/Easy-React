@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-05-27 10:46:56
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-06-01 10:43:16
+ * @LastEditTime: 2020-06-02 14:44:59
  */ 
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
@@ -13,6 +13,7 @@ import * as serviceWorker from "./serviceWorker";
 import App from "./views/App";
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import './mock/test'
 
 class Index extends Component {
   render() {

@@ -5,7 +5,7 @@ import ChangeArea from "../../components/ChangeArea/ChangeArea"
 import listItem from "../../fnComp/listItem/listItem"
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-// import http from "../../http/http";
+import http from "../../http/http";
 
 // 渲染函数
 function viewFn() {
@@ -79,10 +79,9 @@ class home extends Component {
     }
   }
   componentDidMount() {
-    console.log(this)
-    // http.getRequest("/test/tomzAdmin/getGroup").then(res=> {
-    //   console.log(res);
-    // })
+    http.getRequest("/mock/test").then(res=> {
+      console.log(res);
+    })
   }
 
   render() {

@@ -7,12 +7,12 @@ function view() {
   return (
     <div>
       <div>
-        <Input type="text" onChange={event => {this.changeNameFn(event)}}></Input>
+        <Input value={this.state.name} type="text" onChange={event => {this.changeNameFn(event)}}></Input>
         <Button type="primary" onClick={() => {this.setName()}}>设置名字</Button>
       </div>
       <br/>
       <div>
-        <Input type="text" onChange={event => {this.changeSexFn(event)}}></Input>
+        <Input value={this.state.sex} type="text" onChange={event => {this.changeSexFn(event)}}></Input>
         <Button type="primary" onClick={() => {this.setSex()}}>设置性别</Button>
       </div>
     </div>
@@ -37,6 +37,7 @@ class ChangeArea extends Component {
     this.props.changeSex(this.state.sex);
   };
   changeNameFn(e){
+
     this.setState({
       name: e.target.value
     })
