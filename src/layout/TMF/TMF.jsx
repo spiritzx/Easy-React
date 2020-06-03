@@ -4,11 +4,17 @@ import React, { Component } from 'react';
 import Header from "../../components/header/header";
 // 引入底部组件
 import Footer from "../../components/footer/footer";
-import routerArr from "../../router";
+
+import devRouterArr from "../../router/devRouterConfig"
+import routerFn from "../../router/router";
+
 import RouterView from "../../components/RouterView/RouterView";
 // import { withRouter } from 'react-router-dom';
 import "./style/TMF.scss";
 
+
+let routerArr = routerFn(devRouterArr)
+console.log(routerArr)
 class TMF extends Component {
   constructor(props) {
     super(props);
