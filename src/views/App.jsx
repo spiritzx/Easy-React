@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { withRouter } from "react-router-dom"
-import TMF from "../layout/TMF/TMF"
+// import TMF from "../layout/TMF/TMF"
+import TSM from "../layout/TSM/TSM"
 import "../assets/theme/one.scss"
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className="theme-one">
-        <TMF></TMF>
+        <TSM></TSM>
       </div>
     )
   }

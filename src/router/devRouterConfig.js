@@ -22,28 +22,28 @@ let routerArray = [
     path: "/about",
     exact: true // 开启严格匹配模式
   },
-  // {
-  //   name: "Detail",
-  //   path: "/detail",
-  //   exact: false, // 开启严格匹配模式
-  //   childer: [
-  //     {
-  //       name: "DetailChild1",
-  //       path: "/detail/detailChild1",
-  //       exact: true // 开启严格匹配模式
-  //     },
-  //     {
-  //       name: "DetailChild2",
-  //       path: "/detail/detailChild2/:id",
-  //       exact: true // 开启严格匹配模式
-  //     },
-  //   ]
-  // },
-  // {
-  //   name: "NotFound",
-  //   path: "/404",
-  //   exact: false
-  // },
+  {
+    name: "Detail",
+    path: "/detail",
+    exact: false, // 开启严格匹配模式
+    childer: [
+      {
+        name: "DetailChild1",
+        path: "/detail/detailChild1",
+        exact: true // 开启严格匹配模式
+      },
+      {
+        name: "DetailChild2",
+        path: "/detail/detailChild2/:id",
+        exact: true // 开启严格匹配模式
+      },
+    ]
+  },
+  {
+    name: "NotFound",
+    path: "/404",
+    exact: false
+  },
   {
     type: "redirect",
     path: "/404"
