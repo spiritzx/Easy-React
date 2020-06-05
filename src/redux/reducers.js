@@ -18,7 +18,17 @@ function changeSex(state = '男', action) {
       return state
   }
 }
+function setCollapsed(state = false, action) {
+  switch (action.type) {
+    case CHANGESEX:
+      return action.data
+    default:
+      return state
+  }
+}
 
 export const finalReducer = combineReducers({
-  changeName, changeSex
+  changeName,
+  changeSex,
+  setCollapsed
 })

@@ -1,0 +1,15 @@
+.page-logo {
+  height: 65px;
+  background: #fff;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .app-logo {
+    width: 40px;
+    margin-right: 10px;
+  }
+}

@@ -37,7 +37,6 @@ class ChangeArea extends Component {
     this.props.changeSex(this.state.sex);
   };
   changeNameFn(e){
-
     this.setState({
       name: e.target.value
     })
