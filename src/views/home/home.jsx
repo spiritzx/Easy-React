@@ -33,13 +33,13 @@ function viewFn() {
       </div>
       {/* <div>{lastname}</div> */}
       <div><span>性别：</span>{ props.sex }</div>
-      {
+      {/* {
         this.state.arr.map((val, key) => {
           return (
             listItem(val.name, key)
           )
         })
-      }
+      } */}
     </div>
   )
 }

@@ -1,7 +1,9 @@
 import React, { Component } from "react"
 import { Layout, Menu } from 'antd'
 import "./pageSide.scss"
-import  icon from '../../../../fnComp/iconComp/iconComp';
+import  icon from '../../../../fnComp/iconComp/iconComp'
+import { connect } from 'react-redux'
+
 const { Sider } = Layout
 const { SubMenu } = Menu
 
@@ -9,7 +11,6 @@ class PageSide extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      collapsed: false,
       navArr: [
         {
           name: "01",
@@ -46,7 +47,7 @@ class PageSide extends Component {
   }
   render() {
     return (
-      <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+      <Sider trigger={null} collapsible collapsed={this.props.collapsed}>
         <div className="page-logo">
           <img src={require("../../../../assets/imgs/logo192.png")} alt="logo" className="app-logo"/>
           <p>easy-react</p>
@@ -56,7 +57,7 @@ class PageSide extends Component {
           defaultOpenKeys={['sub1']}
           mode="inline"
           theme="dark"
-          inlineCollapsed={this.state.collapsed}
+          inlineCollapsed={this.props.collapsed}
         >
           {
             this.state.navArr.map((val, i) => {
@@ -94,7 +95,12 @@ class PageSide extends Component {
     )
   }
 }
-
-export default PageSide;
+// 取得redux的值，并且绑定到store身上
+const mapstate = state => {
+  return {
+    collapsed: state.changeSide
+  }
+}
+export default connect(mapstate)(PageSide);
 
 

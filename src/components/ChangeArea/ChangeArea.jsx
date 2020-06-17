@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
-import { changeName, changeSex } from '../../redux/action';
+import { changeName, changeSex } from '../../redux/home/actions';
 import { Button, Input } from "antd"
 
 function view() {
