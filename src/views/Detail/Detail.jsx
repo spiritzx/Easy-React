@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import RouterView from "../../components/RouterView/RouterView";
 
 class Detail extends Component {
-  constructor(props) {
-    super(props);
+  constructor(...props) {
+    super(...props);
     this.state = {};
   }
   render() { 

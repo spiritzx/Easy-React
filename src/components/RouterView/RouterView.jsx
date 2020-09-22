@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Route, withRouter, Redirect, Switch } from 'react-router-dom';
 
 class RourerView extends Component {
-  constructor(props) {
-    super(props);
+  constructor(...props) {
+    super(...props);
     this.state = {}
   }
   render() {
@@ -13,15 +13,19 @@ class RourerView extends Component {
           this.props.routerArr.map((val, key) => {
             if (val.childer && val.childer.length) {
               return (
-                <Route
-                  key={key}
-                  exact={val.exact}
-                  path={val.path}
-                  render={props => {
-                    return <val.component {...props} router={val.childer}></val.component>
-                  }}
-                >
-                </Route>
+                // <Route
+                //   key={key}
+                //   exact={val.exact}
+                //   path={val.path}
+                //   render={props => {
+                //     return <>
+                //       <val.component {...props} router={val.childer}></val.component>
+                //       {/* */}
+                //     </>
+                //   }}
+                // >
+                // </Route>
+                <RourerView routerArr={val.childer}></RourerView>
               )
             } else if (val.type === "redirect") {
               return (
