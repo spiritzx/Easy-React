@@ -3,32 +3,28 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-05-27 10:46:56
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-06-02 14:44:59
+ * @LastEditTime: 2020-10-28 15:08:32
  */ 
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import "./index.scss";
+import "normalize.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
-import App from "./views/App";
+import App from "./router/index";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import './mock/test'
 
-class Index extends Component {
-  render() {
-    return (
-      <Router>
-        <App></App>
-      </Router>
-    )
-  }
+function Root() {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  )
 }
 
 ReactDOM.render(
-  <Provider  store={store}>
-    <Index />
-  </Provider>, 
+  <Root></Root>, 
   document.getElementById("root")
 );
 

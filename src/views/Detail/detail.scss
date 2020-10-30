@@ -1,0 +1,30 @@
+
+.fade-enter {
+  animation: MoveLeft 2s cubic-bezier(0.29, 0.66, 0.64, 0.96);
+  position: absolute;
+  z-index: 1;
+  background: #f00;
+}
+.fade-exit {
+  animation: MoveLeftByHide 2s cubic-bezier(0.29, 0.66, 0.64, 0.96);
+  position: absolute;
+  z-index: 1;
+  background: chartreuse;
+}
+
+@keyframes MoveLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes MoveLeftByHide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

@@ -14,7 +14,6 @@ function viewFn() {
   return (
     <div className="index-wrap">
       <p
-        className={state._class + " title"}
         style={state.style}
       >
         首页
