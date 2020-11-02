@@ -36,7 +36,18 @@ function routerFn(arr) {
       } 
       if (val.name) {
         try {
-          obj.component = loadable(path[val.name])
+          obj.component = ((comp) => {
+            return Loadable({
+              loader: comp,
+              loading() {
+                return (
+                  <div>...</div>
+                )
+              },
+              delay: 5000,
+              timeout: 10000
+            })
+          })(path[val.name]);
         } catch (error) {
           obj.component = "404"
         }

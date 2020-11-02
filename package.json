@@ -92,6 +92,7 @@
     ]
   },
   "devDependencies": {
+    "@loadable/component": "^5.14.1",
     "http-proxy-middleware": "^0.20.0",
     "mockjs": "^1.1.0",
     "node-sass": "^4.12.0"
