@@ -1,23 +1,15 @@
+/*
+ * @Descripttion: 
+ * @Author: tom-z(spirit108@foxmail.com)
+ * @Date: 2020-11-02 19:49:39
+ * @LastEditors: tom-z(spirit108@foxmail.com)
+ * @LastEditTime: 2020-11-04 23:05:25
+ */
 /* 
   * 路由管理 
   */
-import React from 'react';
-import Loadable from 'react-loadable'
-// 组件路由记载配置
-import * as path from "./compPath"
-// 路由加载
-function loadable(comp) {
-  return Loadable({
-    loader: comp,
-    loading() {
-      return (
-        <div>...</div>
-      )
-    },
-    delay: 5000,
-    timeout: 10000
-  })
-}
+import { loadComp } from "../utils/loadComp";
+
 // 递归获取路由配置数组
 function routerFn(arr) {
   let Router = []
@@ -36,18 +28,7 @@ function routerFn(arr) {
       } 
       if (val.name) {
         try {
-          obj.component = ((comp) => {
-            return Loadable({
-              loader: comp,
-              loading() {
-                return (
-                  <div>...</div>
-                )
-              },
-              delay: 5000,
-              timeout: 10000
-            })
-          })(path[val.name]);
+          obj.component = loadComp(val.name)();
         } catch (error) {
           obj.component = "404"
         }

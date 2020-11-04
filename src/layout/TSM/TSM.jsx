@@ -1,3 +1,10 @@
+/*
+ * @Descripttion: 
+ * @Author: tom-z(spirit108@foxmail.com)
+ * @Date: 2020-11-02 19:49:39
+ * @LastEditors: tom-z(spirit108@foxmail.com)
+ * @LastEditTime: 2020-11-04 22:22:54
+ */
 import React, { Component } from 'react';
 // import { Switch } from "react-router-dom";
 // 引入头部组件
@@ -14,7 +21,7 @@ import { Layout } from 'antd';
 
 const { Header, Content } = Layout;
 
-let routerArr = routerFn(devRouterArr)
+let routerArr = routerFn(devRouterArr);
 console.log(routerArr)
 class TMF extends Component {
   render() {

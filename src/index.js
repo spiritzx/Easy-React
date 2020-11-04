@@ -3,12 +3,11 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-05-27 10:46:56
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-10-28 15:08:32
+ * @LastEditTime: 2020-11-04 22:20:45
  */ 
-import React, { Component } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "normalize.css";
-import { BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import App from "./router/index";
 import store from "./redux/store";
