@@ -3,25 +3,25 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-02 19:49:39
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-04 22:22:54
+ * @LastEditTime: 2020-11-07 11:07:05
  */
 import React, { Component } from 'react';
 // import { Switch } from "react-router-dom";
 // 引入头部组件
 import PageHeader from "./comp/PageHeader/PageHeader";
-import devRouterArr from "../../router/devRouterConfig"
+import adminRouterArr from "../../config/adminRouterConfig";
 import routerFn from "../../router/router";
 import RouterView from "../../components/RouterView/RouterView";
 // import { withRouter } from 'react-router-dom';
 import SideComp from "./comp/PageSide/PageSide"
-import "./style/TSM.scss"
+import "./adminPage.scss"
 
 import { Layout } from 'antd';
 
 
 const { Header, Content } = Layout;
 
-let routerArr = routerFn(devRouterArr);
+let routerArr = routerFn(adminRouterArr);
 console.log(routerArr)
 class TMF extends Component {
   render() {

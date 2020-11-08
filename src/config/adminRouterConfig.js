@@ -1,35 +1,35 @@
 /*
- * @Descripttion: 本地内置路由
+ * @Descripttion: 管理内置路由
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-06-03 11:32:20
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-04 23:07:29
+ * @LastEditTime: 2020-11-07 11:15:56
  */ 
 let routerArray = [
   {
     type: "redirect",
-    from: "/",
-    path: "/home",
+    from: "/admin",
+    path: "/admin/home",
     exact: true
   },
   {
     name: "Home",
-    path: "/home",
+    path: "/admin/home",
     exact: true,
   },
   {
     name: "About",
-    path: "/about",
+    path: "/admin/about",
     exact: true,
   },
   {
     name: "Detail",
-    path: "/detail",
+    path: "/admin/detail",
     exact: true,// 开启严格匹配模式
   },
   {
     name: "NotFound",
-    path: "/404",
+    path: "/admin/404",
     exact: false,
   },
   {

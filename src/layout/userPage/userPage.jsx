@@ -1,3 +1,10 @@
+/*
+ * @Descripttion: 
+ * @Author: tom-z(spirit108@foxmail.com)
+ * @Date: 2020-11-02 19:49:39
+ * @LastEditors: tom-z(spirit108@foxmail.com)
+ * @LastEditTime: 2020-11-07 11:09:15
+ */
 import React, { Component } from 'react';
 // import { Switch } from "react-router-dom";
 // 引入头部组件
@@ -10,7 +17,7 @@ import routerFn from "../../router/router";
 
 import RouterView from "../../components/RouterView/RouterView";
 // import { withRouter } from 'react-router-dom';
-import "./style/TMF.scss";
+import "./userPage.scss";
 
 import { Layout, Menu } from 'antd';
 import {
