@@ -24,6 +24,9 @@ function DetailChild2() {
 function NotFound() {
   return import("../views/Detail/DetailChild2/DetailChild2")
 }
+function Login() {
+  return import("../views/login/login")
+}
 
 export {
   Home,
@@ -31,5 +34,6 @@ export {
   Detail,
   DetailChild1,
   DetailChild2,
-  NotFound
+  NotFound,
+  Login
 }

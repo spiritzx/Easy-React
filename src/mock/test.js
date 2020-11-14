@@ -3,15 +3,14 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-06-02 14:17:48
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-06-02 14:55:44
+ * @LastEditTime: 2020-11-14 22:36:38
  */
 // 使用 Mock
 import Mock from 'mockjs'
 
 
-export default Mock.mock('/mock/test', 'get', {
+let test = Mock.mock('/mock/test', 'get', {
   success: true,
-  
   data: {
     password: "123456",
     //属性 paragraph 是一个随机长度的段落
@@ -34,3 +33,43 @@ export default Mock.mock('/mock/test', 'get', {
     ]
   }
 })
+
+let userRoute = Mock.mock('/mock/route', 'get', {
+  success: true,
+  data: [
+    {
+      name: "01",
+      icon: "appstoreOutlined"
+    },
+    {
+      name: "02",
+      icon: "cesktopOutlined",
+      childer: [
+        {
+          name: "021",
+        },
+        {
+          name: "022",
+          childer: [
+            {
+              name: "0221",
+            }
+          ]
+        }
+      ]
+    },
+    {
+      name: "03",
+      icon: "pieChartOutlined",
+      childer: [
+        {
+          name: "031",
+        }
+      ]
+    }
+  ]
+})
+export default {
+  test,
+  userRoute
+} 

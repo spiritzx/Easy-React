@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Layout, Menu } from 'antd'
 import "./pageSide.scss"
-import  icon from '../../../../fnComp/iconComp/iconComp'
+import  icon from '../../../../components/iconComp/iconComp'
 import { connect } from 'react-redux'
 
 const { Sider } = Layout

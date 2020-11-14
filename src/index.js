@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-05-27 10:46:56
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-04 22:20:45
+ * @LastEditTime: 2020-11-14 15:14:22
  */ 
 import React from "react";
 import ReactDOM from "react-dom";
@@ -12,12 +12,15 @@ import * as serviceWorker from "./serviceWorker";
 import App from "./router/index";
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
 import './mock/test'
 
 function Root() {
   return (
     <Provider store={store}>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </Provider>
   )
 }

@@ -3,22 +3,30 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-02 19:49:39
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-07 11:16:46
+ * @LastEditTime: 2020-11-14 21:24:30
  */
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-// import TMF from "../layout/TMF/TMF"
-import TSM from "../layout/adminPage/adminPage";
-import "../assets/theme/one.scss"
-
-function App() {
+import { withRouter } from "react-router-dom";
+import AdminPage from "../layout/adminPage/adminPage";
+import UserPage from "../layout/userPage/userPage";
+import "../assets/theme/one.scss";
+ 
+function App(props) {                                                                  
+  let pageView = null;
+  if (props.location.pathname === '/') {
+    pageView = <AdminPage></AdminPage>
+  } else if (props.location.pathname.search(/^\/admin\//) >= 0) {
+    pageView = <AdminPage></AdminPage>
+  } else {
+    pageView = <UserPage></UserPage>
+  }
+  if (!pageView) {
+    pageView = <AdminPage></AdminPage>
+  }
   return (
-    <Router>
-      <div className="theme-one">
-      
-        <TSM></TSM>
-      </div>
-    </Router>
+    <div className="theme-one">
+      {pageView}
+    </div>
   )
 }
-export default App;
+export default withRouter(App);

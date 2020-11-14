@@ -1,5 +1,12 @@
+/*
+ * @Descripttion: 
+ * @Author: tom-z(spirit108@foxmail.com)
+ * @Date: 2020-11-02 19:49:39
+ * @LastEditors: tom-z(spirit108@foxmail.com)
+ * @LastEditTime: 2020-11-14 15:19:39
+ */
 import React, { Component } from 'react';
-import { Route, withRouter, Redirect, Switch } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 
 class RourerView extends Component {
   constructor(...props) {
@@ -13,18 +20,6 @@ class RourerView extends Component {
           this.props.routerArr.map((val, key) => {
             if (val.childer && val.childer.length) {
               return (
-                // <Route
-                //   key={key}
-                //   exact={val.exact}
-                //   path={val.path}
-                //   render={props => {
-                //     return <>
-                //       <val.component {...props} router={val.childer}></val.component>
-                //       {/* */}
-                //     </>
-                //   }}
-                // >
-                // </Route>
                 <RourerView routerArr={val.childer}></RourerView>
               )
             } else if (val.type === "redirect") {
@@ -38,7 +33,6 @@ class RourerView extends Component {
                 </Redirect>
               )
             } else {
-
               return (
                 <Route
                   key={key}
@@ -56,4 +50,4 @@ class RourerView extends Component {
   }
 }
 
-export default withRouter(RourerView);
+export default RourerView;

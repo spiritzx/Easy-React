@@ -1,11 +1,16 @@
+/*
+ * @Descripttion: 
+ * @Author: tom-z(spirit108@foxmail.com)
+ * @Date: 2020-11-02 19:49:39
+ * @LastEditors: tom-z(spirit108@foxmail.com)
+ * @LastEditTime: 2020-11-14 22:08:12
+ */
 import React, { Component } from "react"
 import "./home.scss"
 import HomeChilder from "../../components/HomeChilder/HomeChilder"
 import ChangeArea from "../../components/ChangeArea/ChangeArea"
-import listItem from "../../fnComp/listItem/listItem"
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-import http from "../../http/http";
 
 // 渲染函数
 function viewFn() {
@@ -60,29 +65,9 @@ class home extends Component {
       fontColor: "red",
       style: {
         color: "#ccc"
-      },
-      arr: [
-        {
-          key: 0,
-          name: "01"
-        },
-        {
-          key: 1,
-          name: "02"
-        },
-        {
-          key: 2,
-          name: "03"
-        },
-      ]
+      }
     }
   }
-  componentDidMount() {
-    http.getRequest("/mock/test").then(res=> {
-      console.log(res);
-    })
-  }
-
   render() {
     return viewFn.bind(this)()
   }

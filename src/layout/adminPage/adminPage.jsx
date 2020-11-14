@@ -3,11 +3,9 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-02 19:49:39
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-07 11:07:05
+ * @LastEditTime: 2020-11-14 22:15:10
  */
-import React, { Component } from 'react';
-// import { Switch } from "react-router-dom";
-// 引入头部组件
+import React, {useState,  useEffect } from 'react';
 import PageHeader from "./comp/PageHeader/PageHeader";
 import adminRouterArr from "../../config/adminRouterConfig";
 import routerFn from "../../router/router";
@@ -15,37 +13,42 @@ import RouterView from "../../components/RouterView/RouterView";
 // import { withRouter } from 'react-router-dom';
 import SideComp from "./comp/PageSide/PageSide"
 import "./adminPage.scss"
-
 import { Layout } from 'antd';
-
+import { getUserRouterFn } from "../../api/user";
 
 const { Header, Content } = Layout;
 
-let routerArr = routerFn(adminRouterArr);
-console.log(routerArr)
-class TMF extends Component {
-  render() {
-    return (
-      <Layout>
-        <SideComp />
-        <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }}>
-            <PageHeader />
-          </Header>
-          <Content
-            className="site-layout-background"
-            style={{
-              margin: '24px 16px',
-              padding: 24,
-              minHeight: 820,
-            }}
-          >
-            <RouterView routerArr={routerArr}></RouterView>
-          </Content>
-        </Layout>
+
+function AdminPage() {
+  let [routerArr, setRouterArr] = useState([])
+  useEffect(() => {
+    getUserRouterFn().then(res => {
+      console.log(res);
+    })
+    let routerArr = routerFn(adminRouterArr);
+    setRouterArr(routerArr);
+  }, [])
+  console.log(routerArr)
+  return (
+    <Layout>
+      <SideComp />
+      <Layout className="site-layout">
+        <Header className="site-layout-background" style={{ padding: 0 }}>
+          <PageHeader />
+        </Header>
+        <Content
+          className="site-layout-background"
+          style={{
+            margin: '24px 16px',
+            padding: 24,
+            minHeight: 820,
+          }}
+        >
+          <RouterView routerArr={routerArr}></RouterView>
+        </Content>
       </Layout>
-    )
-  }
+    </Layout>
+  )
 }
 
-export default TMF;
+export default AdminPage;
