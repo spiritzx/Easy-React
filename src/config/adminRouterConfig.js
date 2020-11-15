@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-06-03 11:32:20
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-12 22:29:35
+ * @LastEditTime: 2020-11-15 11:30:43
  */ 
 let routerArray = [
   {
@@ -14,16 +14,19 @@ let routerArray = [
   },
   {
     name: "Home",
+    type: "link",
     path: "/admin/home",
     exact: true,
   },
   {
     name: "About",
+    type: "link",
     path: "/admin/about",
     exact: true,
   },
   {
     name: "Detail",
+    type: "link",
     path: "/admin/detail",
     exact: true,// 开启严格匹配模式
   },

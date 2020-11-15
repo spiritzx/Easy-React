@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-02 19:49:39
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-14 22:15:10
+ * @LastEditTime: 2020-11-15 11:52:23
  */
 import React, {useState,  useEffect } from 'react';
 import PageHeader from "./comp/PageHeader/PageHeader";
@@ -20,18 +20,21 @@ const { Header, Content } = Layout;
 
 
 function AdminPage() {
-  let [routerArr, setRouterArr] = useState([])
+  let [routerArr, setRouterArr] = useState([]);
+  let [userRoute, setUseRoute] = useState([]);
   useEffect(() => {
     getUserRouterFn().then(res => {
-      console.log(res);
+      if (res.success) {
+        setUseRoute(res.data);
+      }
     })
     let routerArr = routerFn(adminRouterArr);
     setRouterArr(routerArr);
   }, [])
   console.log(routerArr)
   return (
-    <Layout>
-      <SideComp />
+    <Layout className="admin-page">
+      <SideComp userRoute={userRoute} />
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }}>
           <PageHeader />
