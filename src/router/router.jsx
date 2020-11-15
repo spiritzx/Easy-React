@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-02 19:49:39
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-04 23:05:25
+ * @LastEditTime: 2020-11-15 14:02:03
  */
 /* 
   * 路由管理 
@@ -26,7 +26,7 @@ function routerFn(arr) {
         obj.childer = []
         routerHandleFn(val.childer, obj.childer)
       } 
-      if (val.name) {
+      if (val.name && val.type !== 'menu') {
         try {
           obj.component = loadComp(val.name)();
         } catch (error) {

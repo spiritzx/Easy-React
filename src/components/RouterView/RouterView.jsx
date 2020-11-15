@@ -3,10 +3,11 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-02 19:49:39
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-14 15:19:39
+ * @LastEditTime: 2020-11-15 14:30:24
  */
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
+import NotFound from "../../views/NotFound/NotFound";
 
 class RourerView extends Component {
   constructor(...props) {
@@ -45,6 +46,7 @@ class RourerView extends Component {
             }
           })
         }
+        <Route component={NotFound}></Route>
       </Switch>
     )
   }

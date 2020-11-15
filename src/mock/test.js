@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-06-02 14:17:48
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-15 11:40:07
+ * @LastEditTime: 2020-11-15 14:10:09
  */
 // 使用 Mock
 import Mock from 'mockjs'
@@ -38,26 +38,29 @@ let userRoute = Mock.mock('/mock/route', 'get', {
   success: true,
   data: [
     {
-      name: "03",
-      icon: "pieChartOutlined",
-      childer: [
-        {
-          name: "031",
-        }
-      ]
-    },
-    {
-      name: "后台管理",
+      c_name: "系统管理",
       icon: "cesktopOutlined",
       childer: [
         {
-          name: "用户管理",
+          c_name: "用户管理",
+          name: "userAdmin",
+          type: "link",
+          path: "/admin/userAdmin",
+          exact: true,
         },
         {
-          name: "权限管理",
+          c_name: "权限管理",
+          name: "authAdmin",
+          type: "link",
+          path: "/admin/authAdmin",
+          exact: true,
         },
         {
-          name: "路由管理",
+          c_name: "路由管理",
+          name: "routeAdmin",
+          type: "link",
+          path: "/admin/routeAdmin",
+          exact: true,
         },
       ]
     }

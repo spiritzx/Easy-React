@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-02 19:49:39
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-15 11:47:52
+ * @LastEditTime: 2020-11-15 14:17:19
  */
 import React from "react";
 import { Layout, Menu } from "antd";
@@ -44,7 +44,7 @@ function PageSide(props) {
           props.userRoute.map((val, i) => {
             if (val.childer) {
               return (
-                <SubMenu key={"sub" + i} icon={icon[val.icon]} title={val.name} >
+                <SubMenu key={"sub" + i} icon={icon[val.icon]} title={val.c_name} >
                   {
                     val.childer.map((item, j) => {
                       return (
@@ -52,7 +52,7 @@ function PageSide(props) {
                           key={"sub" + j + i}
                           icon={icon[item.icon]}
                         >
-                          {item.name}
+                          <NavLink to={item.path}> {item.c_name}</NavLink>
                         </Menu.Item>
                       )
                     })
@@ -64,8 +64,9 @@ function PageSide(props) {
                 <Menu.Item
                   key={i}
                   icon={icon[val.icon]}
+                  
                 >
-                  {val.name}
+                  <NavLink to={val.path}> {val.c_name}</NavLink>
                 </Menu.Item>
               )
             }
