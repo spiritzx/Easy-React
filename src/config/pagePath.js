@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-06-03 15:02:48
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-04 22:53:26
+ * @LastEditTime: 2020-11-15 14:44:16
  */
 // 首页 
 function Home() {
@@ -15,13 +15,19 @@ function About() {
 function Detail() {
   return import("../views/Detail/Detail")
 }
+function userAdmin() {
+  return import("../views/userAdmin/userAdmin")
+}
+function authAdmin() {
+  return import("../views/authAdmin/authAdmin")
+}
+function routeAdmin() {
+  return import("../views/routeAdmin/routeAdmin")
+}
 function DetailChild1() {
   return import("../views/Detail/DetailChild1/DetailChild1")
 }
 function DetailChild2() {
-  return import("../views/Detail/DetailChild2/DetailChild2")
-}
-function NotFound() {
   return import("../views/Detail/DetailChild2/DetailChild2")
 }
 function Login() {
@@ -34,6 +40,8 @@ export {
   Detail,
   DetailChild1,
   DetailChild2,
-  NotFound,
-  Login
+  Login,
+  userAdmin,
+  routeAdmin,
+  authAdmin
 }

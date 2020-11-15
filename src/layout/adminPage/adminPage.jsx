@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-02 19:49:39
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-15 11:52:23
+ * @LastEditTime: 2020-11-15 14:47:47
  */
 import React, {useState,  useEffect } from 'react';
 import PageHeader from "./comp/PageHeader/PageHeader";
@@ -25,11 +25,13 @@ function AdminPage() {
   useEffect(() => {
     getUserRouterFn().then(res => {
       if (res.success) {
-        setUseRoute(res.data);
+        let userRouteArr = res.data;
+        setUseRoute(userRouteArr);
+        let routerArr = routerFn(adminRouterArr.concat(userRouteArr));
+        setRouterArr(routerArr);
       }
     })
-    let routerArr = routerFn(adminRouterArr);
-    setRouterArr(routerArr);
+    
   }, [])
   console.log(routerArr)
   return (
