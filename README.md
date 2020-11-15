@@ -1,4 +1,13 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# React-app
+> 简单好用的 react pc 端开发方案
+
+## 所用插件
+- antd
+- redux
+- mockjs
+- axios
+- react-router-dom
 
 ## Available Scripts
 
