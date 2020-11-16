@@ -3,14 +3,15 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-02 19:49:39
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-15 14:17:19
+ * @LastEditTime: 2020-11-16 22:30:32
  */
 import React from "react";
 import { Layout, Menu } from "antd";
 import "./pageSide.scss";
 import  icon from "../../../../components/iconComp/iconComp";
 import { connect } from "react-redux";
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
+import { addRouteFn } from "../../../../redux/pageSide/actions";
 
 const { Sider } = Layout
 const { SubMenu } = Menu
@@ -21,6 +22,10 @@ function PageSide(props) {
     title = <p className="title">Easy-React</p>;
   } else {
     title = null;
+  }
+  function addRouteFn(val) {
+    console.log(val);
+    console.log(props)
   }
   return (
     <Sider trigger={null} collapsible collapsed={props.collapsed}>
@@ -33,7 +38,6 @@ function PageSide(props) {
         defaultOpenKeys={['sub1']}
         mode="inline"
         theme="dark"
-        inlineCollapsed={props.collapsed}
       >
         <Menu.Item
           icon= { icon.mailOutlined }
@@ -51,6 +55,7 @@ function PageSide(props) {
                         <Menu.Item
                           key={"sub" + j + i}
                           icon={icon[item.icon]}
+                          onClick={() => {addRouteFn(item)}}
                         >
                           <NavLink to={item.path}> {item.c_name}</NavLink>
                         </Menu.Item>
@@ -82,6 +87,12 @@ const mapstate = state => {
     collapsed: state.changeSide
   }
 }
-export default connect(mapstate)(PageSide);
+const mapDispatch = (dispatch) => {
+  return {
+    addRouteFn: (route)=> dispatch(addRouteFn(route))
+  }
+};
+
+export default connect(mapstate, mapDispatch)(PageSide);
 
 

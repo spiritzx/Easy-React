@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-02 19:49:39
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-15 14:30:24
+ * @LastEditTime: 2020-11-16 19:59:39
  */
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
@@ -21,7 +21,7 @@ class RourerView extends Component {
           this.props.routerArr.map((val, key) => {
             if (val.childer && val.childer.length) {
               return (
-                <RourerView routerArr={val.childer}></RourerView>
+                <RourerView key={key} routerArr={val.childer}></RourerView>
               )
             } else if (val.type === "redirect") {
               return (
