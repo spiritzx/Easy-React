@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-02 19:49:39
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-16 19:59:39
+ * @LastEditTime: 2020-11-22 14:55:16
  */
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
@@ -39,7 +39,9 @@ class RourerView extends Component {
                   key={key}
                   exact={val.exact}
                   path={val.path}
-                  component={val.component}
+                  render= {() => (
+                    <val.component meta={val.meta}></val.component>
+                  )}
                 >
                 </Route>
               )

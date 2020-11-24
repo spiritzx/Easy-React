@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-06-03 11:32:20
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-15 11:30:43
+ * @LastEditTime: 2020-11-22 14:55:34
  */ 
 let routerArray = [
   {
@@ -17,6 +17,9 @@ let routerArray = [
     type: "link",
     path: "/admin/home",
     exact: true,
+    meta: {
+      hideNavBar: true
+    }
   },
   {
     name: "About",
