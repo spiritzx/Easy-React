@@ -3,14 +3,15 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-02 19:49:39
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-24 23:06:43
+ * @LastEditTime: 2020-11-25 21:01:32
  */
 import React, {useState,  useEffect } from 'react';
 import PageHeader from "./comp/PageHeader/PageHeader";
 import adminRouterArr from "../../config/adminRouterConfig";
 import routerFn from "../../router/router";
 import RouterView from "../../components/RouterView/RouterView";
-import SideComp from "./comp/PageSide/PageSide"
+import SideComp from "./comp/PageSide/PageSide";
+import NavBar from "./comp/NavBar/NavBar";
 import "./adminPage.scss"
 import { Layout } from 'antd';
 import { getUserRouterFn } from "../../api/user";
@@ -24,6 +25,7 @@ const { Header, Content } = Layout;
 function getPathObjFn(path, routeArr) {
   let pathObj = null;
   function mapRouteArr(path, routeArr) {
+    console.log(routeArr);
     routeArr.forEach(element => {
       if (element.childer) {
         mapRouteArr(path, element.childer)
@@ -39,7 +41,8 @@ function getPathObjFn(path, routeArr) {
 }
 
 function AdminPage(props) {
-  
+  // 原始全部路由
+  let [allRouter, setAllRouter] = useState([]);
   // 管理全部路由
   let [routerArr, setRouterArr] = useState([]);
   // 侧边导航栏
@@ -48,10 +51,11 @@ function AdminPage(props) {
     getUserRouterFn().then(res => {
       if (res.success) {
         let userRouteArr = res.data;
-        console.log(res.data)
         setUseRoute(userRouteArr);
-        let routerArr = routerFn(adminRouterArr.concat(userRouteArr));
-        let currentPathObj = getPathObjFn(props.location.pathname, routerArr);
+        let _allRouter = adminRouterArr.concat(userRouteArr);
+        setAllRouter(_allRouter);
+        let routerArr = routerFn(_allRouter);
+        let currentPathObj = getPathObjFn(props.location.pathname, _allRouter);
         if (currentPathObj) {
           props.addRouteFn(currentPathObj);
           console.log(props.routeBar);
@@ -62,38 +66,27 @@ function AdminPage(props) {
     // eslint-disable-next-line
   }, [])
   useEffect(() => {
-    let currentPathObj = getPathObjFn(props.location.pathname, routerArr);
+    let currentPathObj = getPathObjFn(props.location.pathname, allRouter);
     if (currentPathObj) {
       props.addRouteFn(currentPathObj);
       console.log(props.routeBar);
     }
     // eslint-disable-next-line
   }, [props.location.pathname])
-  console.log(routerArr);
-  // 
-  
   return (
     <Layout className="admin-page">
       <SideComp userRoute={userRoute} />
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }}>
           <PageHeader />
-          <div>
-            {
-              props.routeBar.map((item, key) => {
-                return (
-                  <div key={key}>{ item.route.name }</div>
-                )
-              })
-            }
-          </div>
+          <NavBar></NavBar>
         </Header>
         <Content
           className="site-layout-background"
           style={{
             margin: '24px 16px',
             padding: 24,
-            minHeight: 820,
+            minHeight: 830
           }}
         >
           <RouterView routerArr={routerArr}></RouterView>

@@ -1,0 +1,47 @@
+.nav-bar {
+  display: flex;
+  align-items: center;
+  height: 35px;
+  line-height: 35px;
+  border-top: 1px solid #eeeeee;
+  justify-content: space-between;
+}
+.nav-bar__wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  .ctrl-btn {
+    position: absolute;
+    cursor: pointer;
+  }
+  .left-btn {
+    left: 0;
+    top: 0;
+    height: 35px;
+    width: 20px;
+    background: #fff;
+  }
+  .right-btn {
+    right: 0;
+    top: 0;
+    height: 35px;
+    width: 20px;
+    background: #fff;
+  }
+  .nav-bar__content {
+    position: absolute;
+    width: auto;
+    white-space: nowrap;
+    display: inline-flex;
+    overflow: hidden;
+    align-items: center;
+    height: 100%;
+  }
+}
+.dropmenu {
+  width: 120px;
+  height: 35px;
+}

@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-06-03 11:32:20
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-22 14:55:34
+ * @LastEditTime: 2020-11-25 22:06:08
  */ 
 let routerArray = [
   {
@@ -17,6 +17,7 @@ let routerArray = [
     type: "link",
     path: "/admin/home",
     exact: true,
+    c_name: "首页",
     meta: {
       hideNavBar: true
     }
@@ -26,6 +27,7 @@ let routerArray = [
     type: "link",
     path: "/admin/about",
     exact: true,
+    c_name: "关于",
   },
   {
     name: "Detail",
