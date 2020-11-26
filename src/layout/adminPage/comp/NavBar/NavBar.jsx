@@ -3,9 +3,9 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-25 20:17:51
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-25 22:00:13
+ * @LastEditTime: 2020-11-26 22:25:13
  */
-import React  from "react";
+import React, { useRef, useState }  from "react";
 import { connect } from "react-redux";
 import { Button, Menu, Dropdown } from 'antd';
 import { DownOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
@@ -32,14 +32,36 @@ const menu = (
     <Menu.Item danger>a danger item</Menu.Item>
   </Menu>
 )
+
+
 function NavBar(props) {
+  let wrap = useRef(null);
+  let content = useRef(null);
+  let [left, setLeft] = useState(20);
+  let [step, setStep] = useState(1);
+  let style = {
+    left: left
+  };
+  const scrollFn = () => {
+    let wrapW = wrap.current.offsetWidth;
+    let contentW = content.current.offsetWidth;
+    setLeft(wrapW - (contentW * step) - 20);
+  }
+  const leftScroll = () => {
+    setStep(step + 1);
+    scrollFn()
+  }
+  const rightScroll = () => {
+    setStep(step - 1);
+    scrollFn()
+  }
   return (
     <div className="nav-bar">
-      <div className="nav-bar__wrap">
-        <div className="left-btn ctrl-btn">
+      <div className="nav-bar__wrap" ref={wrap}>
+        <div onClick={leftScroll} className="left-btn ctrl-btn">
           <LeftOutlined />
         </div>
-        <div className="nav-bar__content">
+        <div style={style} className="nav-bar__content" ref={content}>
           {
             props.routeBar.map((item, key) => {
               return (
@@ -48,7 +70,7 @@ function NavBar(props) {
             })
           }
         </div>
-        <div className="right-btn ctrl-btn">
+        <div className="right-btn ctrl-btn" onClick={rightScroll}>
           <RightOutlined />
         </div>
       </div>
@@ -62,6 +84,7 @@ function NavBar(props) {
     </div>
   )
 }
+
 let mapProps = (state) => ({
   routeBar: state.routeBarFn
 })
