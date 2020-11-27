@@ -3,11 +3,12 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-25 20:17:51
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-26 22:25:13
+ * @LastEditTime: 2020-11-27 22:49:14
  */
 import React, { useRef, useState }  from "react";
 import { connect } from "react-redux";
 import { Button, Menu, Dropdown } from 'antd';
+import { NavLink } from "react-router-dom"
 import { DownOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { Tag } from 'antd';
 import "./NavBar.scss";
@@ -38,22 +39,28 @@ function NavBar(props) {
   let wrap = useRef(null);
   let content = useRef(null);
   let [left, setLeft] = useState(20);
-  let [step, setStep] = useState(1);
+  let [step, setStep] = useState(0);
   let style = {
     left: left
   };
-  const scrollFn = () => {
-    let wrapW = wrap.current.offsetWidth;
+  const scrollFn = (num) => {
+    let wrapW = wrap.current.offsetWidth - 40;
     let contentW = content.current.offsetWidth;
-    setLeft(wrapW - (contentW * step) - 20);
+    if ((wrapW * num) < contentW) {
+      setStep(num);
+      let length = (wrapW * num * -1) + 20;
+      setLeft(length);
+    } else if (left < 20) {
+      setLeft(20);
+    }
   }
+  
   const leftScroll = () => {
-    setStep(step + 1);
-    scrollFn()
+    scrollFn(step + 1)
   }
   const rightScroll = () => {
-    setStep(step - 1);
-    scrollFn()
+    let _step = step - 1 > 0 ? step - 1 : 0
+    scrollFn(_step)
   }
   return (
     <div className="nav-bar">
@@ -65,7 +72,9 @@ function NavBar(props) {
           {
             props.routeBar.map((item, key) => {
               return (
-                <Tag key={key}>{ item.route.c_name }</Tag>
+                <Tag key={key}>
+                  <NavLink to={item.route.path}> { item.route.c_name } </NavLink>
+                </Tag>
               )
             })
           }

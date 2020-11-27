@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-02 19:49:39
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-25 21:28:20
+ * @LastEditTime: 2020-11-27 20:13:34
  */
 import React from "react";
 import { Layout, Menu } from "antd";
@@ -23,10 +23,6 @@ function PageSide(props) {
     title = <p className="title">Easy-React</p>;
   } else {
     title = null;
-  }
-  function addRouteFn(val) {
-    console.log(val);
-    console.log(props)
   }
   return (
     <Sider trigger={null} collapsible collapsed={props.collapsed}>
@@ -56,7 +52,6 @@ function PageSide(props) {
                         <Menu.Item
                           key={"sub" + j + i}
                           icon={icon[item.icon]}
-                          onClick={() => {addRouteFn(item)}}
                         >
                           <NavLink to={item.path}> {item.c_name}</NavLink>
                         </Menu.Item>
@@ -70,7 +65,6 @@ function PageSide(props) {
                 <Menu.Item
                   key={i}
                   icon={icon[val.icon]}
-                  
                 >
                   <NavLink to={val.path}> {val.c_name}</NavLink>
                 </Menu.Item>

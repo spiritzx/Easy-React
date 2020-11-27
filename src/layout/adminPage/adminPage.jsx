@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-02 19:49:39
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-25 21:01:32
+ * @LastEditTime: 2020-11-27 20:14:25
  */
 import React, {useState,  useEffect } from 'react';
 import PageHeader from "./comp/PageHeader/PageHeader";
@@ -25,7 +25,6 @@ const { Header, Content } = Layout;
 function getPathObjFn(path, routeArr) {
   let pathObj = null;
   function mapRouteArr(path, routeArr) {
-    console.log(routeArr);
     routeArr.forEach(element => {
       if (element.childer) {
         mapRouteArr(path, element.childer)
@@ -58,7 +57,7 @@ function AdminPage(props) {
         let currentPathObj = getPathObjFn(props.location.pathname, _allRouter);
         if (currentPathObj) {
           props.addRouteFn(currentPathObj);
-          console.log(props.routeBar);
+          // console.log(props.routeBar);
         }
         setRouterArr(routerArr);
       }
@@ -69,7 +68,7 @@ function AdminPage(props) {
     let currentPathObj = getPathObjFn(props.location.pathname, allRouter);
     if (currentPathObj) {
       props.addRouteFn(currentPathObj);
-      console.log(props.routeBar);
+      // console.log(props.routeBar);
     }
     // eslint-disable-next-line
   }, [props.location.pathname])
