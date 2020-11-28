@@ -3,14 +3,14 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-25 20:17:51
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-27 22:49:14
+ * @LastEditTime: 2020-11-28 16:42:55
  */
 import React, { useRef, useState }  from "react";
 import { connect } from "react-redux";
 import { Button, Menu, Dropdown } from 'antd';
-import { NavLink } from "react-router-dom"
-import { DownOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { Tag } from 'antd';
+import { NavLink, withRouter } from "react-router-dom";
+import { DownOutlined, LeftOutlined, RightOutlined, CloseOutlined } from '@ant-design/icons';
+import { delRouteFn } from "../../../../redux/pageSide/actions";
 import "./NavBar.scss";
 
 const menu = (
@@ -62,6 +62,18 @@ function NavBar(props) {
     let _step = step - 1 > 0 ? step - 1 : 0
     scrollFn(_step)
   }
+
+  const closeNavItem = (index) => {
+    if (props.routeBar.length > 1) {
+      props.delRouteFn(index);
+      let _routeBarArr = props.routeBar;
+      if (_routeBarArr[index]) {
+        props.history.push(_routeBarArr[index].path)
+      } else {
+        props.history.push(_routeBarArr[index - 1].path)
+      }
+    }
+  }
   return (
     <div className="nav-bar">
       <div className="nav-bar__wrap" ref={wrap}>
@@ -70,11 +82,24 @@ function NavBar(props) {
         </div>
         <div style={style} className="nav-bar__content" ref={content}>
           {
-            props.routeBar.map((item, key) => {
+            props.routeBar.map((item, index) => {
               return (
-                <Tag key={key}>
-                  <NavLink to={item.route.path}> { item.route.c_name } </NavLink>
-                </Tag>
+                <div className="nav-item__wrap" key={index}>
+                  <NavLink className="nav-item" to={item.path}>
+                    <span className="nav-item__name">{ item.c_name }</span>
+                  </NavLink>
+                  <CloseOutlined
+                    className="close-btn"
+                    onClick={() => {closeNavItem(index)}}
+                    style={
+                      {
+                        lineHeight: "38px",
+                        fontSize: 12,
+                        color: '#333'
+                      }
+                    }
+                  ></CloseOutlined>
+                </div>
               )
             })
           }
@@ -97,4 +122,7 @@ function NavBar(props) {
 let mapProps = (state) => ({
   routeBar: state.routeBarFn
 })
-export default connect(mapProps)(NavBar);
+let mapDispatch = (dispatch) => ({
+  delRouteFn: (index)=> dispatch(delRouteFn(index))
+})
+export default connect(mapProps, mapDispatch)(withRouter(NavBar));

@@ -3,7 +3,7 @@
  * @Author: tom-z(spirit108@foxmail.com)
  * @Date: 2020-11-02 19:49:39
  * @LastEditors: tom-z(spirit108@foxmail.com)
- * @LastEditTime: 2020-11-27 20:14:25
+ * @LastEditTime: 2020-11-28 16:12:14
  */
 import React, {useState,  useEffect } from 'react';
 import PageHeader from "./comp/PageHeader/PageHeader";
@@ -39,7 +39,23 @@ function getPathObjFn(path, routeArr) {
   return pathObj;
 }
 
+  // 防止 navBar 中重复路由
+  function isNavBarContentFn(path, arr) {
+    console.log(arr)
+    let res = true;
+    let navBar = arr.map(val => {
+      return val.path;
+    })
+    console.log(arr);
+    console.log(navBar)
+    console.log(path)
+    res = navBar.includes(path)
+    return res;
+  }
+
 function AdminPage(props) {
+
+
   // 原始全部路由
   let [allRouter, setAllRouter] = useState([]);
   // 管理全部路由
@@ -64,14 +80,16 @@ function AdminPage(props) {
     })
     // eslint-disable-next-line
   }, [])
+  
   useEffect(() => {
     let currentPathObj = getPathObjFn(props.location.pathname, allRouter);
-    if (currentPathObj) {
+    console.log(props.location)
+    if (currentPathObj && !isNavBarContentFn(props.location.pathname, props.routeBar)) {
       props.addRouteFn(currentPathObj);
-      // console.log(props.routeBar);
     }
     // eslint-disable-next-line
   }, [props.location.pathname])
+
   return (
     <Layout className="admin-page">
       <SideComp userRoute={userRoute} />
@@ -85,7 +103,7 @@ function AdminPage(props) {
           style={{
             margin: '24px 16px',
             padding: 24,
-            minHeight: 830
+            minHeight: 820
           }}
         >
           <RouterView routerArr={routerArr}></RouterView>

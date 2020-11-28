@@ -40,6 +40,25 @@
     align-items: center;
     height: 100%;
   }
+  .active {
+    background: #1890ff;
+    color: #fff;
+  }
+  .nav-item__wrap {
+    position: relative;
+    margin-right: 20px;
+    .close-btn {
+      position: absolute;
+      right: 10px;
+      top: 0;
+    }
+  }
+  .nav-item {
+    padding-left: 10px;
+    padding-right: 30px;
+    display: flex;
+    line-height: 35px;
+  }
 }
 .dropmenu {
   width: 120px;
